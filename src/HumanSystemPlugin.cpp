@@ -312,16 +312,16 @@ void HumanSystemPlugin::updateGazeboPedestrians(gz::sim::EntityComponentManager&
 
     // Create actor pose from pedestrian data 
     gz::math::Pose3d actorPose;
-    actorPose.Pos().X(pedestrian.position.position.x);
-    actorPose.Pos().Y(pedestrian.position.position.y);
+    actorPose.Pos().X(pedestrian.pose.position.x);
+    actorPose.Pos().Y(pedestrian.pose.position.y);
     actorPose.Pos().Z(0.80); // Fixed height 
     
     // Convert quaternion to yaw
     tf2::Quaternion quat(
-      pedestrian.position.orientation.x,
-      pedestrian.position.orientation.y,
-      pedestrian.position.orientation.z,
-      pedestrian.position.orientation.w
+      pedestrian.pose.orientation.x,
+      pedestrian.pose.orientation.y,
+      pedestrian.pose.orientation.z,
+      pedestrian.pose.orientation.w
     );
     tf2::Matrix3x3 m(quat);
     double roll, pitch, yaw;
